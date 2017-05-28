@@ -1,12 +1,13 @@
 package main.java.com.jterm; // package = folder :P
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class JTerm { // Main method, call when going back to standby
 	
 	  static String version = "Prerelease1.0"; // Global version variable
 	
-	  public static void main(String[] args) {
+	  public static void main(String[] args) throws IOException {
 		  
 		 boolean quit = false; // Assign a default value of false to the quit variable
 		 Scanner user_input = new Scanner(System.in); // Setup input: String input = user_input.next();
@@ -20,9 +21,9 @@ public class JTerm { // Main method, call when going back to standby
 		 user_input.close();
 		 
 	}
+	 
 	  
-	  
-	  public static boolean Standby(Scanner user_input) { // Standby mode, awaiting user input.
+	  public static boolean Standby(Scanner user_input) throws IOException { // Standby mode, awaiting user input.
 		  	  
 		  System.out.println("jterm> ");
 		  String input = user_input.next(); // Get a line of text
@@ -31,6 +32,7 @@ public class JTerm { // Main method, call when going back to standby
 		  
 		  case "help":
 			  System.out.println("JTerm v" + version); // Prints "JTerm v1.0" for example
+			  Help.Help();
 			  break;
 			  
 		  case "quit":
@@ -39,7 +41,9 @@ public class JTerm { // Main method, call when going back to standby
 		  case "write":
 			  Write.WriteFile();
 			  break;
+		  case "read":
 			  
+			  break;
 		  default:
 			  System.out.println("Unknown Command."); // Fall back when unknown command is entered
 			  break;
